@@ -2,16 +2,16 @@
 <html>
 <head>
 	<script type="text/javascript">
-		function factorial(num){
+		function factorial(num) {
 			return num == 0 ? 1 : num*factorial(num-1);
 		};
 		//верхняя граница 2540160
-		function decomposion(num){
+		function decomposion(num) {
 			return num.toString().split(''); 
 			//return num.toString();
 		};
 		//num - готовый массив
-		function sum(number){
+		function sum(number) {
 			var res = 0;
 			var q = decomposion(number);
 			for (var i = 0; i < q.length; i++) {
@@ -21,9 +21,10 @@
 			return res;
 		};
 
-		function factorion(){
-			for (var i = 0; i < 2540160; i++) {
-				if (i == sum(i)){
+		function factorion() {
+			var i = 0;
+			for (i; i < 2540160; i++) {
+				if (i == sum(i)) {
 					console.log(i);
 				}
 			};

@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script type="text/javascript" src="task.js"></script>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="task.js"></script>
+	<script type="text/javascript">
+	var vessel = new Vessel('Яндекс', [0,0, 0], 1000);
+	var planetA = new Planet('A', [0,0, 0], 0);
+	var planetB = new Planet('B', [100, 100, 100], 5000);
+	vessel.report();
+	planetB.report();
+	planetA.report();
+	vessel.flyTo(planetB);
+	planetB.loadCargoTo(vessel, 200);
+	planetA.loadCargoTo(vessel, 200);
+	vessel.report();
+	planetB.report();
+	</script>
 </head>
 <body>
 

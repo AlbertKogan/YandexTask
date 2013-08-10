@@ -1,0 +1,43 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:100&subset=cyrillic-ext);
+
+div, body{
+	border: 1px solid black;
+	margin: 0;
+	padding: 0;
+}
+
+ul{
+	list-style: none;
+}
+
+h1{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+}
+
+
+#tab_menu{
+	position: fixed;
+	width: 300px;
+	float: left;
+}
+
+#content{
+	margin-left: 300px;
+}
+
+.progres_bar{
+	width: 250px;
+	height: 20px;
+	background-color: orange;
+}
+
+.progres_bar_inner{
+	width: 0px;
+	height: 18px;
+	background-color: red;
+}
+.active_item{
+	background-color: #888;
+}
+
