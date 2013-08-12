@@ -15,7 +15,7 @@
 					<ul id="list_menu">
 						<li><a href="#tab_item_1">Общие вопросы</a></li>
 						<li><a href="#tab_item_2">Тестовое задание</a></li>
-						<li><a href="#">Контакты</a></li>
+						<li><a href="#tab_item_3">Контакты</a></li>
 					</ul>
 
 				<!--prog bar-->
@@ -40,7 +40,6 @@
 					<div>
 						<h2>Вуз, факультет, специальность, кафедра</h2>
 						<textarea></textarea>
-						<input type="file">
 					</div>
 					<div>
 						<h2>Уровень владения английским языком</h2>
@@ -97,20 +96,46 @@
 				<form mame="form2">
 					<div>
 						<h2>Факторион числа пожалуйста</h2>
-						<textarea></textarea>
+						<input type="url" name="website" required>
+						<input type="file">
 					</div>
 					<div>
 						<h2>Вы не курили траву, и всё же вы пилот межгалактического корабля</h2>
-						<textarea></textarea>
+						<input type="url" name="website" required>
+						<input type="file">
 					</div>
 					<div>
 						<h2>Сделайте за нас работу и сверстайте форму</h2>
-						<textarea></textarea>
+						<input type="url" name="website" required>
+						<input type="file">
 					</div>
-				</div>
-			</form>
+				</form>
 			</div>
-			<div class="footer"><h1>Footer</h1></div>		
+			<div class="tabs" id="tab_item_3">
+				<form name="form3">
+				<div>
+					<p>Резюме до 250 КБ</p>
+					<input type="file">
+				</div>
+				<div>
+					<p>Ссылка на профиль в Моём Круге</p>
+					<input type="url">
+				</div>
+				<div>
+					<p>Имя и фамилия</p>
+					<input type="text">
+				</div>
+				<div>
+					<p>Телефон</p>
+					<input type="tel">
+				</div>
+				<div>
+					<p>E-mail</p>
+					<input  type="email">
+				</div>
+				</form>
+			</div>
+		</div>	
 		</div>
 		<script type="text/javascript" src="js/script.js"></script>
 	</body>

@@ -1,29 +1,49 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:100&subset=cyrillic-ext);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic);
 
-div, body{
-	border: 1px solid black;
+body,div,h1,h2,h3,h4,h5,h6,p,ol,ul,li,fieldset,form,label,legend{
+	border: 0;
 	margin: 0;
 	padding: 0;
+}
+
+body{
+	//overflow: hidden;
 }
 
 ul{
 	list-style: none;
 }
 
-h1{
+h1, h2{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
+	color: #25271E;
+}
+
+p, ul, a{
+	font-family: 'Open Sans', sans-serif;
+	color: #25271E;
+	text-decoration: none;
 }
 
 
+.wrapper{
+	//max-width: 1460px;
+	margin: 0 1.33%;
+}
+
 #tab_menu{
 	position: fixed;
-	width: 300px;
+	width: 33.33%;
 	float: left;
 }
 
 #content{
-	margin-left: 300px;
+	margin-left: 36.33%;
+	height: 100%;
+	position: fixed;
+	overflow: auto;
 }
 
 .progres_bar{

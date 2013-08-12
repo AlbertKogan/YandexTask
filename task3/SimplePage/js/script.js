@@ -1,14 +1,14 @@
 $(document).ready(function(){
 	$('#tab_menu').css('padding-top', $(window).height()/2 - $('#tab_menu').height());
 
-	$('#list_menu li').hover(
+	/*$('#list_menu li').hover(
 		function(){
 			$(this).css("background-color", "#acdc99");
 		},
 		function(){
 			$(this).css("background-color", "white");
 		}
-	);
+	);*/
 	$('form').progBar();
   $('#list_menu').accordion();
 
@@ -18,15 +18,25 @@ $(document).ready(function(){
 //accordion
 (function( $ ) {
   $.fn.accordion = function() {
+    var $li = $(this).find('li');
     var $href = $(this).find('a');
+    $li.hover(
+      function(){
+        $(this).css("background-color", "#acdc99");
+      },
+      function(){
+        $(this).css("background-color", "white");
+      }
+    );    
     $('.tabs').hide();
     $href.bind('click', function(e) {
       $('.tabs:visible').hide();
       //$(this.hash).show('slow');
-      $(this.hash).slideDown();
-     // $(this.hash).animate({ "left": "+=100px" }, "slow",function(){$(this).show();} );
+      $(this.hash).slideDown('slow');
+      //$(this).css("background-color", "#acdc99");
       e.preventDefault();
     }).filter(':first').click();
+    //$href.css("background-color", "red");
   };
 })(jQuery);
 
