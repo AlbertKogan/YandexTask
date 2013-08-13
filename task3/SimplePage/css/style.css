@@ -8,7 +8,10 @@ body,div,h1,h2,h3,h4,h5,h6,p,ol,ul,li,fieldset,form,label,legend{
 }
 
 body{
-	//overflow: hidden;
+	height: 100%;
+}
+div{
+	/*border: 1px solid black;*/
 }
 
 ul{
@@ -21,15 +24,34 @@ h1, h2{
 	color: #25271E;
 }
 
-p, ul, a{
+p, ul, a, label, button, span, input, input[type="radio"], label{
 	font-family: 'Open Sans', sans-serif;
 	color: #25271E;
 	text-decoration: none;
 }
 
+input{
+	width: 200px;
+}
+
+textarea{
+	width: 400px;
+	height: 80px;
+}
+
+input[type="radio"]{
+	width: auto;
+}
+
+.header h1{
+	line-height: 100px;
+}
+
+.header{
+	height: 100px;
+}
 
 .wrapper{
-	//max-width: 1460px;
 	margin: 0 1.33%;
 }
 
@@ -41,7 +63,8 @@ p, ul, a{
 
 #content{
 	margin-left: 36.33%;
-	height: 100%;
+	width: 60.777%;
+	//height: 100%;
 	position: fixed;
 	overflow: auto;
 }
@@ -61,3 +84,68 @@ p, ul, a{
 	background-color: #888;
 }
 
+.send_group{
+	height: 100px;
+}
+
+.buttons, .file_btn{
+	position: relative;
+	margin-top: 20px;	
+	vertical-align: middle;
+	border: 0;
+	width: 130px;
+	height: 40px;
+	color: white;
+	font-size: 1em;
+}
+
+.sbt_btn{
+	background: #2ecc71;
+	border-bottom: 4px solid #28be68;
+}
+
+.res_btn{
+	background: #e74c3c;
+	border-bottom: 4px solid #db4334;
+}
+
+.sbt_btn:hover{
+	background: #28be68;
+}
+
+.res_btn:hover{
+	background: #db4334;
+}
+
+input[type="file"]{
+	opacity: 0;
+	padding: 0;
+	margin-left: -190px;
+}
+
+.style_inpt_file{
+	height: 45px;
+}
+
+.file_btn{
+	margin-left: 0;
+	background: #3498db;
+	border-bottom: 4px solid #2a8bcc;
+	padding: 3px 25px;
+}
+
+.tabs form div{
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.tabs form div:first-child{
+	margin: 0px;
+}
+
+#list_menu li{
+	margin: 10px 0;
+	padding: 10px;
+	font-color: #fff;
+	font-size: 1.1em;
+}
