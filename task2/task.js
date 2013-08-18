@@ -5,6 +5,7 @@
  * @param {Number}[] position Местоположение корабля.
  * @param {Number} capacity Грузоподъемность корабля.
  */
+ "use strict";
 function Vessel(name, position, capacity) {
 	this.name = name;
 	this.position = position;
@@ -20,7 +21,7 @@ function Vessel(name, position, capacity) {
  * @name Vessel.report
  */
 Vessel.prototype.report = function () {
-	console.log("cargo name: " + this.name + "; position: " + this.position + "; capacity: " + this.capacity);
+	console.log("Корабль: " + this.name + "; Местоположение: " + this.position + "; Вместимость судна: " + this.capacity + " тонн. Занято: ");
 }
 
 /**
@@ -70,14 +71,16 @@ function Planet(name, position, availableAmountOfCargo) {
  * @name Planet.report
  */
 Planet.prototype.report = function () {
-	console.log("Planet name: " + this.name + "; Planet position: " + this.position + "; Available cargo: " + this.availableAmountOfCargo);
+	console.log("Планета: " + this.name + "; Координаты: " + this.position + "; Доступно грузов: " + this.availableAmountOfCargo);
 }
 
 /**
  * Возвращает доступное количество груза планеты.
  * @name Vessel.getAvailableAmountOfCargo
  */
-Planet.prototype.getAvailableAmountOfCargo = function () {}
+Planet.prototype.getAvailableAmountOfCargo = function () {
+	return this.availableAmountOfCargo;
+}
 
 /**
  * Загружает на корабль заданное количество груза.
@@ -92,7 +95,7 @@ Planet.prototype.loadCargoTo = function (vessel, cargoWeight) {
 		vessel.capacity -= cargoWeight;
 		this.availableAmountOfCargo -= cargoWeight;
 	}else{
-		console.log("vessel not here");
+		console.log("Корабль находится на другой планете");
 	};
 }
 
@@ -104,4 +107,11 @@ Planet.prototype.loadCargoTo = function (vessel, cargoWeight) {
  * @param {Number} cargoWeight Вес выгружаемого груза.
  * @name Vessel.unloadCargoFrom
  */
-Planet.prototype.unloadCargoFrom = function (vessel, cargoWeight) {}
+Planet.prototype.unloadCargoFrom = function (vessel, cargoWeight) {
+	if (this.position == vessel.position) {
+		vessel.capacity += cargoWeight;
+		this.availableAmountOfCargo += cargoWeight;
+	}else{
+		console.log("Корабль находится на другой планете");
+	};	
+}

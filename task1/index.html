@@ -2,33 +2,69 @@
 <html>
 <head>
 	<script type="text/javascript">
-		function factorial(num) {
-			return num == 0 ? 1 : num*factorial(num-1);
-		};
-		//верхняя граница 2540160
-		function decomposion(num) {
-			return num.toString().split(''); 
-			//return num.toString();
-		};
-		//num - готовый массив
-		function sum(number) {
-			var res = 0;
-			var q = decomposion(number);
-			for (var i = 0; i < q.length; i++) {
-				res += factorial(q[i]);
-				//res += parseInt(factorial(q[i]));
-			};
-			return res;
-		};
+	"use strict";
+/*console.time('begin');
+console.profile();
+var factorion = (function () {
+        var i = 0;
+        function factorial(num) {
+            return num == 0 ? 1 : num * factorial(num - 1);
+        };
 
-		function factorion() {
-			var i = 0;
-			for (i; i < 2540160; i++) {
-				if (i == sum(i)) {
-					console.log(i);
-				}
-			};
-		};
+        function decomposion(num) {
+            return num.toString().split(''); 
+        };
+
+        function sum(number) {
+            var res = 0, q = decomposion(number), i = 0;
+            for (i; i < q.length; i++) {
+                res += factorial(q[i]);
+            };
+            return res;
+        };
+
+        for (i; i < 2540160; i++) {
+            if (i == sum(i)) {
+              console.log(i);
+            }
+          };
+    })();
+		
+console.profileEnd();
+console.timeEnd('end');
+console.log('end');
+*/
+
+//----------------------------------Bad CODE!
+function factorial(num) {
+    'use strict';
+    return num == 0 ? 1 : num * factorial(num - 1);
+};
+//верхняя граница 2540160
+function decomposion(num) {
+    'use strict';
+    return num.toString().split(''); 
+};
+//num - готовый массив
+function sum(number) {
+    'use strict';
+    var res = 0, i = 0, q = decomposion(number);
+    for (i; i < q.length; i++) {
+        res += factorial(q[i]);
+    };
+    return res;
+};
+
+function factorion() {
+    'use strict';
+    var i = 0;
+    for (i; i < 2540160; i++) {
+        if (i == sum(i)) {
+            console.log(i);
+        };
+    };
+};
+
 		console.time('begin');
 		console.profile();
 		factorion();

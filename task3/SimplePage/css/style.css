@@ -18,82 +18,174 @@ ul{
 	list-style: none;
 }
 
+ol{
+	padding-left: 30px;
+}
+
+p{
+	margin: 5px auto;
+	line-height: 1.2;
+}
+
 h1, h2{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
-	color: #25271E;
+	color: #585C4D;
 }
 
-p, ul, a, label, button, span, input, input[type="radio"], label{
+p, ul, ol, a, label, button, span, input, input[type="radio"], label, textarea{
 	font-family: 'Open Sans', sans-serif;
-	color: #25271E;
+	color: #585C4D;
 	text-decoration: none;
+	font-size: 0.85em;
 }
 
+form a{
+	color: #3498db;
+}
+
+form a:hover{
+	color: #0A5180;
+}
 input{
-	width: 200px;
+	width: 250px;
 }
 
 textarea{
-	width: 400px;
-	height: 80px;
+	width: 500px;
+	height: 100px;
 }
 
 input[type="radio"]{
 	width: auto;
 }
 
-.header h1{
-	line-height: 100px;
+input[type="file"]{
+	opacity: 0;
+	padding: 0;
+	margin-left: -190px;
 }
+/*header style*/
 
 .header{
-	height: 100px;
-}
-
-.wrapper{
-	margin: 0 1.33%;
-}
-
-#tab_menu{
+	width: 100%;
 	position: fixed;
-	width: 33.33%;
+	height: 50px;
+	background-color: #75E7A7;
+	z-index: 99;
+}
+
+.header_inner{
+	max-width: 1366px;
+	margin: 0 auto;
+}
+
+.header_inner h1{
+	line-height: 50px;
+	color: #E8EEEB;
+	padding-left: 5.33%;
+}
+
+#colored{
+	color: #585C4D;
+}
+
+.title{
 	float: left;
-}
-
-#content{
-	margin-left: 36.33%;
-	width: 60.777%;
-	//height: 100%;
-	position: fixed;
-	overflow: auto;
+	width: auto;
 }
 
 .progres_bar{
 	width: 250px;
-	height: 20px;
-	background-color: orange;
+	height: 30px;
+	background-color: #E8EEEB;
+	overflow: hidden;
+	float: right;
+	//display: inline-block; 
+	margin-top: 10px;
+	margin-right: 30px;
 }
 
 .progres_bar_inner{
 	width: 0px;
-	height: 18px;
-	background-color: red;
+	height: 30px;
+	background-color: #2a8bcc;
 }
-.active_item{
-	background-color: #888;
+/*-----------------------*/
+
+.wrapper{
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
+.main_container{
+	position: relative;
+	max-width: 1366px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+/*menu*/
+
+#tab_menu{
+	position: fixed;
+	width: 33.33%;
+	//float: left;
+}
+
+.li_hover{
+	background-color: #f7df7e;
+}
+
+.li_active{
+	background-color: #f1c40f;
+}
+
+#list_menu li{
+	margin: 10px 0;
+	padding: 10px;
+}
+
+#list_menu li a{
+	font-weight: 600;
+	font-size: 1.10em;
+}
+
+/*-------------------------*/
+
+.row{
+	display: inline-block;
+	position: relative;
+	width: 33.3%;
+	height: 100%;
+}
+
+#content{
+	width: 66%;
+	position: fixed;
+
+}
+
+.tabs{
+	/*margin-right: 10%;*/
+	width: 100%;
+	overflow: auto;
+}
+
+.tabs div{
+	max-width: 600px;
+}
 .send_group{
 	height: 100px;
 }
 
 .buttons, .file_btn{
 	position: relative;
-	margin-top: 20px;	
+	//margin-top: 10px;	
 	vertical-align: middle;
 	border: 0;
-	width: 130px;
+	width: 125px;
 	height: 40px;
 	color: white;
 	font-size: 1em;
@@ -117,12 +209,6 @@ input[type="radio"]{
 	background: #db4334;
 }
 
-input[type="file"]{
-	opacity: 0;
-	padding: 0;
-	margin-left: -190px;
-}
-
 .style_inpt_file{
 	height: 45px;
 }
@@ -135,7 +221,7 @@ input[type="file"]{
 }
 
 .tabs form div{
-	margin-top: 20px;
+	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
@@ -143,9 +229,17 @@ input[type="file"]{
 	margin: 0px;
 }
 
-#list_menu li{
-	margin: 10px 0;
-	padding: 10px;
-	font-color: #fff;
-	font-size: 1.1em;
+.show_data{
+	width: 500px;
+	overflow: auto;
+}
+
+.ok{
+	color: green;
+	padding-left: 5px;
+}
+
+.notOk{
+	color: red;
+	padding-left: 5px;
 }

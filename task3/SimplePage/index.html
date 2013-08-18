@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-		<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-	</head>
-	<body>
-		<div class="wrapper">
-			<div class="header">
-				<h1>Яндекс анкета</h1>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="header">
+			<div class="header_inner">
+				<div class="title">
+					<h1>Яндекс</h1>
+					<h1 id="colored">анкета</h1>
+				</div>
+				<div class="progres_bar">
+					<div class="progres_bar_inner"></div>
+				</div>
 			</div>
+		</div>
+		<div class="main_container">
 			<div class="row">
 				<div id="tab_menu">
 					<ul id="list_menu">
@@ -18,132 +27,151 @@
 						<li><a href="#tab_item_2">Тестовое задание</a></li>
 						<li><a href="#tab_item_3">Контакты</a></li>
 					</ul>
-
-				<!--prog bar-->
-				<div class="progres_bar">
-					<div class="progres_bar_inner">
-					</div>
-				</div>					
 				</div>
-
 			</div>
 			<div class="row" id="content">
-			<div class="tabs" id="tab_item_1">
-				<form name="form1">
-					<div>
-						<p>Год рождения</p>
-						<input type="date" name="b_day">
+				<div class="tabs" id="tab_item_1">
+					<form id="form1">
+						<div>
+							<p>Год рождения.</p>
+							<input type="date" name="b_day">
+						</div>
+						<div>
+							<p>Город в ктором вы живёте.</p>
+							<input type="text" name="city" class="check_this">
+						</div>
+						<div>
+							<p>Вуз, факультет, специальность, кафедра.</p>
+							<textarea name="school"></textarea>
+						</div>
+						<div>
+							<p>Год окончания вуза.</p>
+							<input type="number" name="yearOfFreedom" class="check_this">
+						</div>
+						<div>
+							<p>Уровень владения английским языком.</p>
+							<label><input type="radio" name="lang" value="beginner">Начальный</label><br>
+							<label><input type="radio" name="lang" value="middle">Средний</label><br>
+							<label><input type="radio" name="lang" value="master">Шекспир</label><br>						
+						</div>
+						<div>
+							<p>Чего вы ожидаете от участия в Школе?</p>
+							<textarea name="schoolEcpectation"></textarea>
+						</div>
+						<div>
+							<p>Откуда вы о нас узнали?</p>
+							<select>
+								<option></option>
+								<option>Друзья</option>
+								<option>Реклама</option>
+								<option>Птичка напела</option>
+								<option>Интернет</option>
+								<option></option>
+								<option></option>
+								<option></option>
+							</select>
+						</div>
+						<div>
+							<p>Сколько времени вы были бы готовы уделять стажировке или работе в Яндексе?
+							</p>
+							<input type="text" name="workHoures" class="check_this">
+						</div>
+						<div>
+							<p>Расскажите о вашем опыте разработки.</p>
+							<textarea name="experience"></textarea>
+						</div>
+						<div>
+							<p>Если вы где-нибудь работали, расскажите, какие у вас были должностные обязанности и был ли опыт работы в команде.</p>
+							<textarea name="duties"></textarea>
+						</div>
+						<div>
+							<p>Перечислите, какими программными продуктами вы пользуетесь в своей работе. Какие задачи решаются с их помощью.</p>
+							<textarea name="programs"></textarea>
+						</div>
+						<div>
+							<p>Пользуетесь ли вы командной строкой? Какими командами вы пользуетесь и какие задачи вы решаете с их помощью? С какими программами вы преимущественно или полностью взаимодействуете через интерфейс командной строки?</p>
+							<textarea name="commandLine"></textarea>
+						</div>
 					</div>
-					<div>
-						<p>Город в ктором вы живёте</p>
-						<input type="text" name="city">
+					<div class="tabs" id="tab_item_2">
+						<div>
+							<p>Напишите на JavaScript функцию, которая выводит список всех чисел, которые равны сумме факториалов своих цифр.</p>
+							<input type="url" placeholder="Ссылка на GitHub" name="website" class="check_this">
+							<p>или</p>
+							<div class="style_inpt_file">
+								<span  class="file_btn">Загрузить файл</span>
+								<input type="file">
+								<span class="file_name"></span>
+							</div>
+						</div>
+						<div>
+							<p>Допишите незавершённые интерфнйсы. Полное условие задачи доступно на <a href="https://github.com/yandex-shri/introtask-space">GitHub</a></p>
+							<input type="url" placeholder="Ссылка на GitHub" name="website" class="check_this">
+							<p>или</p>
+							<div class="style_inpt_file">
+								<span  class="file_btn">Загрузить файл</span>
+								<input type="file">
+								<span class="file_name"></span>
+							</div>
+						</div>
+						<div>
+							<p>Сверстайте форму-анкету с нашими заданиями для кандидатов. Страница должна работать в следующих браузерах: MSIE (8, 9, 10), Google Chrome (26, 27), Firefox (20, 21), Opera (12.15, 12.14), Яндекс.Браузер 1.5. По возможности используйте приёмы безопасной деградации CSS. Страница должна содержать интерактив, реализованный с помощью JS и jQuery. Это может быть:</p>
+							<ol type="1">
+								<li>проверка полноты и правильности заполнения полей (где это возможно);</li>
+								<li>возможность свернуть и развернуть разделы (аккордеон);</li>
+								<li>индикатор заполнения анкеты;</li>
+								<li>что-нибудь ещё.</li>
+							</ol>
+							<p>Подумайте над тем, как эти данные будут отправляться на сервер. Будет плюсом, если вы сверстаете страницу, используя БЭМ.</p>
+							<p>Дополнительные задания:</p>
+							<ol>
+								<li>выполните задание про форму-анкету, используя один из классических шаблонизаторов: Handlebars, mustache, Dust, Jade и т.п.</li>
+								<li>выполните задание про форму-анкету, используя один из экзотических шаблонизаторов: XSLT, YATE, BEMHTML и т.п.</li>
+							</ol>
+							<input type="url" placeholder="Ссылка на GitHub" name="website" class="check_this">
+							<p>или</p>
+							<div class="style_inpt_file">
+								<span  class="file_btn">Загрузить файл</span>
+								<input type="file">
+								<span class="file_name"></span>
+							</div>
+						</div>
 					</div>
-					<div>
-						<p>Вуз, факультет, специальность, кафедра</p>
-						<textarea></textarea>
-					</div>
-					<div>
-						<p>Уровень владения английским языком</p>
-						<label><input type="radio" name="lang" value="beginner">Начальный</label><br>
-						<label><input type="radio" name="lang" value="middle">Средний</label><br>
-						<label><input type="radio" name="lang" value="master">Шекспир</label><br>
-						
-					</div>
-					<div>
-						<p>Чего ожидаете от участия в школе?</p>
-						<textarea></textarea>
-					</div>
-					<div>
-						<p>Откуда о нас узнали?</p>
-						<select>
-							<option></option>
-							<option>Друзья</option>
-							<option>Реклама</option>
-							<option>Птичка напела</option>
-							<option>Интернет</option>
-							<option></option>
-							<option></option>
-							<option></option>
-						</select>
-					</div>
-					<div>
-						<p>Сколько времени вы были бы готовы уделять стажировке или работе в Яндексе?
-						</p>
-						<textarea></textarea>
-					</div>
-					<div>
-						<p>Сколько времени готов работать?</p>
-						<textarea></textarea>
-					</div>
-					<div>
-						<p>Опыт разработки</p>
-						<textarea></textarea>
-					</div>
-					<div>
-						<p>Кто по жизни</p>
-						<textarea></textarea>
-					</div>
-					<div>
-						<p>Какими продуктами пользуешься</p>
-						<textarea></textarea>
-					</div>
-					<div>
-						<p>Командная строка друг и товарищ?</p>
-						<textarea></textarea>
-					</div>
-				</form>
-			</div>
-			<div class="tabs" id="tab_item_2">
-				<form mame="form2">
-					<div>
-						<p>Факторион числа пожалуйста</p>
-						<input type="url" name="website" required>
-						<div class="style_inpt_file"><span  class="file_btn">Загрузить файл</span><input type="file"><span class="file_name"></span></div>
-					</div>
-					<div>
-						<p>Вы не курили траву, и всё же вы пилот межгалактического корабля</p>
-						<input type="url" name="website" required>
-						<div class="style_inpt_file"><span  class="file_btn">Загрузить файл</span><input type="file"></div>
-					</div>
-					<div>
-						<p>Сделайте за нас работу и сверстайте форму</p>
-						<input type="url" name="website" required>
-						<div class="style_inpt_file"><span  class="file_btn">Загрузить файл</span><input type="file"></div>
-
-					</div>
-				</form>
-			</div>
-			<div class="tabs" id="tab_item_3">
-				<form name="form3">
-				<div>
-					<p>Резюме до 250 КБ</p>
-					<div class="style_inpt_file"><span  class="file_btn">Загрузить файл</span><input type="file"></div>
+					<div class="tabs" id="tab_item_3">
+						<div>
+							<p>Резюме до 250 КБ</p>
+							<div class="style_inpt_file">
+								<span  class="file_btn">Загрузить файл</span>
+								<input type="file" name="resume">
+								<span class="file_name"></span>
+							</div>
+						</div>
+						<div>
+							<p>Ссылка на профиль в Моём Круге</p>
+							<input type="url" name="myCircle" class="check_this">
+						</div>
+						<div>
+							<p>Имя и фамилия</p>
+							<input type="text" name="name" class="check_this">
+						</div>
+						<div>
+							<p>Телефон</p>
+							<input type="tel" name = "telephone" class="check_this">
+						</div>
+						<div>
+							<p>E-mail</p>
+							<input  type="email" name="mail" class="check_this">
+						</div>
+						<div class="send_group">
+							<button type="button" class="buttons sbt_btn" id="submit_btn">Отправить</button>
+							<button type="reset" class="buttons res_btn">Очистить</button>
+						</div>
+					</form>
+					<div class="show_data"></div>
 				</div>
-				<div>
-					<p>Ссылка на профиль в Моём Круге</p>
-					<input type="url">
-				</div>
-				<div>
-					<p>Имя и фамилия</p>
-					<input type="text" required>
-				</div>
-				<div>
-					<p>Телефон</p>
-					<input type="tel" required>
-				</div>
-				<div>
-					<p>E-mail</p>
-					<input  type="email" required>
-				</div>
-				<div class="send_group">
-					<button type="submit" class="buttons sbt_btn">Отправить</button>
-					<button type="reset" class="buttons res_btn">Очистить</button>
-				</div>
-				</form>
-
 			</div>
 		</div>	
-		</div>
-		<script type="text/javascript" src="js/script.js"></script>
-	</body>
+	</div>
+	<script type="text/javascript" src="js/script.js"></script>
+</body>
 </html>
