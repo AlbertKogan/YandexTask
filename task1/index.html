@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script type="text/javascript">
-	"use strict";
-/*console.time('begin');
-console.profile();
-var factorion = (function () {
-        var i = 0;
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <style type="text/css">
+  .center{
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 600px;
+    height: 400px;
+    border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+    <div class='center'>
+        <h1>Факторионы:</h1>
+        <h2 id='factorion'></h2>
+        <p>Замеры времени можно посмотреть в консоли.</p>
+    </div>
+
+    <script type="text/javascript">
+    "use strict";
+    console.time('begin');
+    console.profile();
+    var factorion = (function () {
+        var i = 0,
+        j = 0,
+        factArr = [];
         function factorial(num) {
             return num == 0 ? 1 : num * factorial(num - 1);
         };
@@ -23,58 +48,25 @@ var factorion = (function () {
             return res;
         };
 
-        for (i; i < 2540160; i++) {
+        for (i; i < 2540160; i++) {//top limit
             if (i == sum(i)) {
-              console.log(i);
-            }
-          };
-    })();
-		
-console.profileEnd();
-console.timeEnd('end');
-console.log('end');
-*/
-
-//----------------------------------Bad CODE!
-function factorial(num) {
-    'use strict';
-    return num == 0 ? 1 : num * factorial(num - 1);
-};
-//верхняя граница 2540160
-function decomposion(num) {
-    'use strict';
-    return num.toString().split(''); 
-};
-//num - готовый массив
-function sum(number) {
-    'use strict';
-    var res = 0, i = 0, q = decomposion(number);
-    for (i; i < q.length; i++) {
-        res += factorial(q[i]);
-    };
-    return res;
-};
-
-function factorion() {
-    'use strict';
-    var i = 0;
-    for (i; i < 2540160; i++) {
-        if (i == sum(i)) {
-            console.log(i);
+                console.log(i);
+                factArr[j] = i;
+                j++;  
+            };
         };
-    };
-};
+        return factArr;
+    })();
+    
+    (function add(){
+        var a = document.getElementById("factorion");
+        a.innerHTML = factorion;
+    })();
 
-		console.time('begin');
-		console.profile();
-		factorion();
-		console.profileEnd();
-		console.timeEnd('end');
-		console.log('end');
-	</script>
-</head>
-
-<body>
-
+    console.profileEnd();
+    console.timeEnd('end');
+    console.log('end');
+    console.log(factorion);
+    </script>
 </body>
 </html>

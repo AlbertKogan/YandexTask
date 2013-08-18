@@ -15,6 +15,11 @@ $(document).ready(function(){
   $.fn.accordion = function() {
     var $li = $(this).find('li');
     var $href = $(this).find('a');
+    var selected = false;
+
+    $href.each(function() {
+     $(this).data('selected', false);
+   });
 
     $li.hover(
       function(){
@@ -26,12 +31,15 @@ $(document).ready(function(){
       );
 
     $('.tabs').hide();
-
-    $href.on('click', function(e) {
-      $('.tabs:visible').slideUp('slow');
-      $(this.hash).slideDown('slow');
-      //e.stopImmediatePropagation();
-      e.preventDefault();
+    $href.on('click', function(event) {
+      //console.log($href);
+      //if ($(this).data().selected == false) {
+        //$(this).data().selected = true;
+        $('.tabs:visible').slideUp('slow');
+        $(this.hash).slideDown('slow');
+        //return false;   
+      //};    
+      
     }).filter(':first').click();
   };
 })(jQuery);
@@ -95,7 +103,7 @@ $(document).ready(function(){
 (function( $ ){
   $.fn.sbt_form = function(){
     $('#submit_btn').on('click', function() {
-      var data = $('#form1').serializeArray(),
+      var data = $(':input').serializeArray(),
       serialData = {},
       jsonData = {};
       $.map(data, function(i){
@@ -115,9 +123,9 @@ $(document).ready(function(){
     //regexp
     //name
     var checkThisValue,
-        elementName,
-        elementType,
-        $that;
+    elementName,
+    elementType,
+    $that;
     var checkers = {
       city: /^[A-z-\s]{3,25}|[А-я-\s]{3,25}$/,
       name: /^([A-z\s]+|[А-я\s]+)$/,
