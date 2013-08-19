@@ -1,0 +1,156 @@
+!!! 5
+html
+  head
+    meta(charset='utf-8')
+    script(type='text/javascript', src='http://code.jquery.com/jquery-1.10.2.min.js')
+    script(type='text/javascript', src='js/jquery-1.10.2.min.js')
+    link(rel='stylesheet', type='text/css', href='stylesheets/style.css')
+  body
+    .wrapper
+      .header
+        .header_inner
+          .title
+            h1 Яндекс
+            h1#colored анкета
+          .progres_bar
+            p.progres_name
+              | Progress
+            .progres_bar_inner
+      .main_container
+        .row
+          #tab_menu
+            ul#list_menu
+              li
+                a(href='#tab_item_1') Общие вопросы
+              li
+                a(href='#tab_item_2') Тестовое задание
+              li
+                a(href='#tab_item_3') Контакты
+        #content.row
+          #tab_item_1.tabs
+            form#form1
+              div
+                p Год рождения.
+                input(type='date', name='b_day')
+              div
+                p Город в ктором вы живёте.
+                input.check_this(type='text', name='city')
+              div
+                p Вуз, факультет, специальность, кафедра.
+                textarea(name='school')
+              div
+                p Год окончания вуза.
+                input.check_this(type='number', name='yearOfFreedom')
+              div
+                p Уровень владения английским языком.
+                label
+                  input(type='radio', name='lang', value='beginner')
+                  | Начальный
+                br
+                label
+                  input(type='radio', name='lang', value='middle')
+                  | Средний
+                br
+                label
+                  input(type='radio', name='lang', value='master')
+                  | Шекспир
+                br
+              div
+                p Чего вы ожидаете от участия в Школе?
+                textarea(name='schoolEcpectation')
+              div
+                p Откуда вы о нас узнали?
+                select
+                  option
+                  option Друзья
+                  option Реклама
+                  option Птичка напела
+                  option Интернет
+                  option
+                  option
+                  option
+              div
+                p
+                  | Сколько времени вы были бы готовы уделять стажировке или работе в Яндексе?
+                input.check_this(type='text', name='workHoures')
+              div
+                p Расскажите о вашем опыте разработки.
+                textarea(name='experience')
+              div
+                p
+                  | Если вы где-нибудь работали, расскажите, какие у вас были должностные обязанности и был ли опыт работы в команде.
+                textarea(name='duties')
+              div
+                p
+                  | Перечислите, какими программными продуктами вы пользуетесь в своей работе. Какие задачи решаются с их помощью.
+                textarea(name='programs')
+              div
+                p
+                  | Пользуетесь ли вы командной строкой? Какими командами вы пользуетесь и какие задачи вы решаете с их помощью? С какими программами вы преимущественно или полностью взаимодействуете через интерфейс командной строки?
+                textarea(name='commandLine')
+          #tab_item_2.tabs
+            div
+              p
+                | Напишите на JavaScript функцию, которая выводит список всех чисел, которые равны сумме факториалов своих цифр.
+              input.check_this(type='url', placeholder='Ссылка на GitHub', name='website')
+              p или
+              .style_inpt_file
+                span.file_btn Загрузить файл
+                input(type='file')
+                span.file_name
+            div
+              p
+                | Допишите незавершённые интерфнйсы. Полное условие задачи доступно на
+                a(href='https://github.com/yandex-shri/introtask-space') GitHub
+              input.check_this(type='url', placeholder='Ссылка на GitHub', name='website')
+              p или
+              .style_inpt_file
+                span.file_btn Загрузить файл
+                input(type='file')
+                span.file_name
+            div
+              p
+                | Сверстайте форму-анкету с нашими заданиями для кандидатов. Страница должна работать в следующих браузерах: MSIE (8, 9, 10), Google Chrome (26, 27), Firefox (20, 21), Opera (12.15, 12.14), Яндекс.Браузер 1.5. По возможности используйте приёмы безопасной деградации CSS. Страница должна содержать интерактив, реализованный с помощью JS и jQuery. Это может быть:
+              ol(type='1')
+                li проверка полноты и правильности заполнения полей (где это возможно);
+                li возможность свернуть и развернуть разделы (аккордеон);
+                li индикатор заполнения анкеты;
+                li что-нибудь ещё.
+              p
+                | Подумайте над тем, как эти данные будут отправляться на сервер. Будет плюсом, если вы сверстаете страницу, используя БЭМ.
+              p Дополнительные задания:
+              ol
+                li
+                  | выполните задание про форму-анкету, используя один из классических шаблонизаторов: Handlebars, mustache, Dust, Jade и т.п.
+                li
+                  | выполните задание про форму-анкету, используя один из экзотических шаблонизаторов: XSLT, YATE, BEMHTML и т.п.
+              input.check_this(type='url', placeholder='Ссылка на GitHub', name='website')
+              p или
+              .style_inpt_file
+                span.file_btn Загрузить файл
+                input(type='file')
+                span.file_name
+          #tab_item_3.tabs
+            div
+              p Резюме до 250 КБ
+              .style_inpt_file
+                span.file_btn Загрузить файл
+                input(type='file', name='resume')
+                span.file_name
+            div
+              p Ссылка на профиль в Моём Круге
+              input.check_this(type='url', name='myCircle')
+            div
+              p Имя и фамилия
+              input.check_this(type='text', name='name')
+            div
+              p Телефон
+              input.check_this(type='tel', name='telephone')
+            div
+              p E-mail
+              input.check_this(type='email', name='mail')
+            .send_group
+              button#submit_btn.buttons.sbt_btn(type='button') Отправить
+              button.buttons.res_btn(type='reset') Очистить
+            .show_data
+    script(type='text/javascript', src='javascripts/script.js')
