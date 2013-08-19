@@ -17,30 +17,33 @@ $(document).ready(function(){
     var $href = $(this).find('a');
     var selected = false;
 
-    $href.each(function() {
-     $(this).data('selected', false);
-   });
-
     $li.hover(
       function(){
         $(this).toggleClass('li_hover');
       },
       function(){
         $(this).toggleClass('li_hover');
-      }
-      );
+      });
+    
+    //set flags to tabs
+    $href.each(function() {
+     $(this).data('selected', false);
+   });
 
     $('.tabs').hide();
-    $href.on('click', function(event) {
-      //console.log($href);
-      //if ($(this).data().selected == false) {
-        //$(this).data().selected = true;
+    $href.on('click', function() {      
+      if ($(this).data().selected == false) {
         $('.tabs:visible').slideUp('slow');
         $(this.hash).slideDown('slow');
-        //return false;   
-      //};    
-      
-    }).filter(':first').click();
+        $href.each(function() {
+         $(this).data('selected', false)
+       });
+        return $(this).data().selected = true;    
+      } else 
+      if ($(this).data().selected == true) {
+       return ($(this).data().selected == true);
+     };    
+   }).filter(':first').click();
   };
 })(jQuery);
 

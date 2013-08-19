@@ -6,12 +6,12 @@
  * @param {Number} capacity Грузоподъемность корабля.
  */
  "use strict";
-function Vessel(name, position, capacity) {
-	this.name = name;
-	this.position = position;
-	this.capacity = capacity;
-	this.freespace = capacity;
-}
+ function Vessel(name, position, capacity) {
+ 	this.name = name;
+ 	this.position = position;
+ 	this.capacity = capacity;
+ 	this.freespace = capacity;
+ }
 
 /**
  * Выводит текущее состояние корабля: имя, местоположение, доступную грузоподъемность.
@@ -21,28 +21,28 @@ function Vessel(name, position, capacity) {
  * vesserl.report(); // Грузовой корабль. Местоположение: 50,20. Груз: 200т.
  * @name Vessel.report
  */
-Vessel.prototype.report = function () {
-	console.log("Корабль: " + this.name + "; Местоположение: " + this.position + "; Вместимость судна: " + this.capacity + " тонн. Занято: " + vessel.getOccupiedSpace());
-	var p = document.createElement('p');
-	p.innerHTML = "Корабль: " + this.name + "; Местоположение: " + this.position + "; Вместимость судна: " + this.capacity + " тонн. Занято: " + vessel.getOccupiedSpace();
-	document.getElementById("log").appendChild(p);
-}
+ Vessel.prototype.report = function () {
+ 	console.log("Корабль: " + this.name + "; Местоположение: " + this.position + "; Вместимость судна: " + this.capacity + " тонн. Занято: " + this.getOccupiedSpace());
+ 	var p = document.createElement('p');
+ 	p.innerHTML = "Корабль: " + this.name + "; Местоположение: " + this.position + "; Вместимость судна: " + this.capacity + " тонн. Занято: " + this.getOccupiedSpace();
+ 	document.getElementById("log").appendChild(p);
+ }
 
 /**
  * Выводит количество свободного места на корабле.
  * @name Vessel.getFreeSpace
  */
-Vessel.prototype.getFreeSpace = function () {
-	return this.freespace;
-}
+ Vessel.prototype.getFreeSpace = function () {
+ 	return this.freespace;
+ }
 
 /**
  * Выводит количество занятого места на корабле.
  * @name Vessel.getOccupiedSpace
  */
-Vessel.prototype.getOccupiedSpace = function () {
-	return (this.capacity - this.freespace);
-}
+ Vessel.prototype.getOccupiedSpace = function () {
+ 	return (this.capacity - this.freespace);
+ }
 
 /**
  * Переносит корабль в указанную точку.
@@ -54,10 +54,18 @@ Vessel.prototype.getOccupiedSpace = function () {
  * vessel.flyTo(earth);
  * @name Vessel.report
  */
-Vessel.prototype.flyTo = function (newPosition) {
-	this.position = newPosition.position;
-	this.report();
-}
+ Vessel.prototype.flyTo = function (newPosition) {
+ 	if (Object.prototype.toString.call( newPosition ) === '[object Array]') {
+ 		this.position = position;
+ 	}else{
+ 		this.position = newPosition.position;
+ 	};
+ 	
+ 	var p = document.createElement('p');
+ 	p.innerHTML = 'Корабль отправился на планету ' + newPosition.name;
+ 	document.getElementById("log").appendChild(p);
+ 	return this.position;
+ }
 
 /**
  * Создает экземпляр планеты.
@@ -66,30 +74,30 @@ Vessel.prototype.flyTo = function (newPosition) {
  * @param {Number}[] position Местоположение планеты.
  * @param {Number} availableAmountOfCargo Доступное количество груза.
  */
-function Planet(name, position, availableAmountOfCargo) {
-	this.name = name;
-	this.position = position;
-	this.availableAmountOfCargo = availableAmountOfCargo;
-}
+ function Planet(name, position, availableAmountOfCargo) {
+ 	this.name = name;
+ 	this.position = position;
+ 	this.availableAmountOfCargo = availableAmountOfCargo;
+ }
 
 /**
  * Выводит текущее состояние планеты: имя, местоположение, количество доступного груза.
  * @name Planet.report
  */
-Planet.prototype.report = function () {
-	console.log("Планета: " + this.name + "; Координаты: " + this.position + "; Доступно грузов: " + this.availableAmountOfCargo);
-	var p = document.createElement('p');
-	p.innerHTML = "Планета: " + this.name + "; Координаты: " + this.position + "; Доступно грузов: " + this.availableAmountOfCargo;
-	document.getElementById("log").appendChild(p);
-}
+ Planet.prototype.report = function () {
+ 	console.log("Планета: " + this.name + "; Координаты: " + this.position + "; Доступно грузов: " + this.availableAmountOfCargo);
+ 	var p = document.createElement('p');
+ 	p.innerHTML = "Планета: " + this.name + "; Координаты: " + this.position + "; Доступно грузов: " + this.availableAmountOfCargo;
+ 	document.getElementById("log").appendChild(p);
+ }
 
 /**
  * Возвращает доступное количество груза планеты.
  * @name Vessel.getAvailableAmountOfCargo
  */
-Planet.prototype.getAvailableAmountOfCargo = function () {
-	return this.availableAmountOfCargo;
-}
+ Planet.prototype.getAvailableAmountOfCargo = function () {
+ 	return this.availableAmountOfCargo;
+ }
 
 /**
  * Загружает на корабль заданное количество груза.
@@ -99,19 +107,18 @@ Planet.prototype.getAvailableAmountOfCargo = function () {
  * @param {Number} cargoWeight Вес загружаемого груза.
  * @name Vessel.loadCargoTo
  */
-Planet.prototype.loadCargoTo = function (vessel, cargoWeight) {
-	if (cargoWeight > vessel.freespace){
-		console.log('Корабль не может принять такое количество груза');
-		return false;
-	};
-
-	if (this.position == vessel.position) {
-		vessel.freespace -= cargoWeight;
-		this.availableAmountOfCargo -= cargoWeight;
-	}else{
-		console.log("Корабль находится на другой планете");
-	};
-}
+ Planet.prototype.loadCargoTo = function (vessel, cargoWeight) {
+ 	if (cargoWeight > vessel.freespace){
+ 		console.log('Корабль не может принять такое количество груза');
+ 		return false;
+ 	};
+ 	if (this.position == vessel.position) {
+ 		vessel.freespace -= cargoWeight;
+ 		this.availableAmountOfCargo -= cargoWeight;
+ 	}else{
+ 		console.log("Корабль находится на другой планете");
+ 	};
+ }
 
 /**
  * Выгружает с корабля заданное количество груза.
@@ -121,11 +128,11 @@ Planet.prototype.loadCargoTo = function (vessel, cargoWeight) {
  * @param {Number} cargoWeight Вес выгружаемого груза.
  * @name Vessel.unloadCargoFrom
  */
-Planet.prototype.unloadCargoFrom = function (vessel, cargoWeight) {
-	if (this.position == vessel.position) {
-		vessel.freespace += cargoWeight;
-		this.availableAmountOfCargo += cargoWeight;
-	}else{
-		console.log("Корабль находится на другой планете");
-	};	
-}
+ Planet.prototype.unloadCargoFrom = function (vessel, cargoWeight) {
+ 	if (this.position == vessel.position) {
+ 		vessel.freespace += cargoWeight;
+ 		this.availableAmountOfCargo += cargoWeight;
+ 	}else{
+ 		console.log("Корабль находится на другой планете");
+ 	};	
+ }
